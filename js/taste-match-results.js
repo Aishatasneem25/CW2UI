@@ -1,16 +1,20 @@
+// taste-match-results.js - Complete working version
+
 document.addEventListener('DOMContentLoaded', function() {
     // Get filtered restaurants from sessionStorage
     const filteredRestaurants = JSON.parse(sessionStorage.getItem('filteredRestaurants')) || [];
     const resultsContainer = document.getElementById('resultsContainer');
     const noResults = document.getElementById('noResults');
     const resultsCount = document.getElementById('resultsCount');
+    const filterBy = document.getElementById('filterBy');
+    const sortBy = document.getElementById('sortBy');
 
-    // Utility: Converts price ranges to numeric value for sorting
+    // Convert price ranges to numeric value for sorting
     function priceToNumber(price) {
         return price === '£' ? 1 : price === '££' ? 2 : price === '£££' ? 3 : 0;
     }
 
-    // Display restaurants
+    // Display restaurants function
     function displayRestaurants(restaurants) {
         resultsContainer.innerHTML = '';
         resultsCount.textContent = restaurants.length;
@@ -26,10 +30,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const card = document.createElement('div');
             card.className = 'col-lg-4 col-md-6 mb-4';
 
-            // Handle image path
             const imgPath = getImagePath(restaurant.thumbnail);
-
-            // Handle price badge class
             const priceBadgeClass = getPriceBadgeClass(restaurant.price_range);
 
             card.innerHTML = `
@@ -51,19 +52,18 @@ document.addEventListener('DOMContentLoaded', function() {
                             <a href="tel:${restaurant.phone}" class="btn btn-outline-secondary">
                                 <i class="fas fa-phone me-1"></i> Call
                             </a>
-                            <a href="${restaurant.book_url}" class="btn btn-primary" target="_blank">
+                            <a href="restaurant-details.html?name=${encodeURIComponent(restaurant.name)}" class="btn btn-primary">
                                 Book a Table <i class="fas fa-external-link-alt ms-1"></i>
                             </a>
                         </div>
                     </div>
                 </div>
             `;
-
             resultsContainer.appendChild(card);
         });
     }
 
-    // Image path resolver
+    // Helper function for image paths
     function getImagePath(thumbnail) {
         if (!thumbnail || thumbnail.trim() === '') return 'images/default-restaurant.jpg';
         if (thumbnail.startsWith('http') || thumbnail.startsWith('/')) return thumbnail;
@@ -71,7 +71,7 @@ document.addEventListener('DOMContentLoaded', function() {
         return thumbnail.includes('.') ? `images/${thumbnail}` : `images/${thumbnail}.jpg`;
     }
 
-    // Price badge class
+    // Helper function for price badge styling
     function getPriceBadgeClass(priceRange) {
         switch (priceRange) {
             case '£': return 'bg-success';
@@ -81,10 +81,61 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // Initial display of restaurants
-    displayRestaurants(filteredRestaurants);
+    // Filter restaurants based on selected filter
+    function applyFilters(restaurants) {
+        const filterValue = filterBy.value;
 
-    // If no results were passed, show a message and provide link back to search
+        if (filterValue === 'all') {
+            return restaurants;
+        } else if (filterValue === 'price') {
+            return restaurants.filter(r => r.price_range === '£');
+        } else if (filterValue === 'cuisine') {
+            const uniqueCuisines = [...new Set(restaurants.flatMap(r => r.cuisine))];
+            const selectedCuisine = prompt(`Filter by cuisine:\n\nAvailable: ${uniqueCuisines.join(', ')}`);
+
+            if (selectedCuisine && uniqueCuisines.includes(selectedCuisine)) {
+                return restaurants.filter(r => r.cuisine.includes(selectedCuisine));
+            } else if (selectedCuisine) {
+                alert(`"${selectedCuisine}" not available. Showing all.`);
+            }
+            return restaurants;
+        }
+        return restaurants;
+    }
+
+    // Sort restaurants based on selected option
+    function applySorting(restaurants) {
+        const sortValue = sortBy.value;
+        const sorted = [...restaurants];
+
+        if (sortValue === 'name-asc') {
+            sorted.sort((a, b) => a.name.localeCompare(b.name));
+        } else if (sortValue === 'name-desc') {
+            sorted.sort((a, b) => b.name.localeCompare(a.name));
+        } else if (sortValue === 'price-asc') {
+            sorted.sort((a, b) => priceToNumber(a.price_range) - priceToNumber(b.price_range));
+        } else if (sortValue === 'price-desc') {
+            sorted.sort((a, b) => priceToNumber(b.price_range) - priceToNumber(a.price_range));
+        }
+
+        return sorted;
+    }
+
+    // Main function to apply filters and sorting
+    function filterAndSortRestaurants() {
+        let processed = applyFilters(filteredRestaurants);
+        processed = applySorting(processed);
+        displayRestaurants(processed);
+    }
+
+    // Event listeners
+    filterBy.addEventListener('change', filterAndSortRestaurants);
+    sortBy.addEventListener('change', filterAndSortRestaurants);
+
+    // Initial display
+    filterAndSortRestaurants();
+
+    // Show message if no results
     if (filteredRestaurants.length === 0) {
         noResults.classList.remove('d-none');
     }
