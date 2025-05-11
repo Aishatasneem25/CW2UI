@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Weekend getaways in Edinburgh - Discover the best short breaks in Scotland's capital">
+  <title>Edinburgh Weekend Getaways | Edinburgh Explorer</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- AOS Animation Library -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+  <!-- Custom CSS -->
+  <link href="css/index-styles.css" rel="stylesheet">
+</head>
+<body>
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-light fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="/" aria-label="Edinburgh Explorer Home">
+      <img src="images/logocw2.PNG" alt="Edinburgh Explorer Logo" height="60">
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarContent">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link active" href="home.html">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="itinerary-planner.html">Itinerary Planner</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="taste-match.html">TasteMatch</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="events.html">Local Events</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="index.html">Login</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero Section -->
+<section class="hero-section" aria-labelledby="main-heading" style="background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3)), url('images/ed1.jpg') no-repeat center/cover;">
+  <div class="container">
+    <h1 id="main-heading" class="display-3 fw-bold mb-4" data-aos="fade-down">Discover Edinburgh</h1>
+    <p class="lead mb-5" data-aos="fade-up">Your perfect Scottish weekend getaway awaits</p>
+
+    <!-- Weather Widget -->
+    <div class="row justify-content-center mb-5">
+      <div class="col-md-4">
+        <div class="weather-widget" data-aos="zoom-in">
+          <h4>Current Weather in Edinburgh</h4>
+          <div class="d-flex align-items-center justify-content-center">
+            <i class="fas fa-cloud-sun fa-3x me-3"></i>
+            <div>
+              <h2 class="mb-0" id="weather-temp">14°C</h2>
+              <p class="mb-0" id="weather-desc">Partly Cloudy</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Search Bar with Filters -->
+    <div class="row justify-content-center mb-5" data-aos="fade-up">
+      <div class="col-md-8">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title text-dark">Find Your Perfect Edinburgh Experience</h5>
+            <form class="row g-2">
+              <div class="col-md-4">
+                <div class="position-relative">
+                  <i class="fas fa-search search-icon"></i>
+                  <input type="text" class="form-control search-input" placeholder="Search...">
+                </div>
+              </div>
+              <div class="col-md-3">
+                <select class="form-select" id="experienceType" aria-label="Select experience type">
+                  <option selected>Experience Type</option>
+                  <option>Historical Tours</option>
+                  <option>Food & Drinks</option>
+                  <option>Outdoor Activities</option>
+                  <option>Cultural Events</option>
+                </select>
+              </div>
+              <div class="col-md-3">
+                <select class="form-select" id="budget" aria-label="Select budget range">
+                  <option selected>Budget</option>
+                  <option>Budget-friendly</option>
+                  <option>Mid-range</option>
+                  <option>Luxury</option>
+                </select>
+              </div>
+              <div class="col-md-2">
+                <button type="submit" class="btn btn-primary w-100">
+                  <i class="fas fa-search me-1"></i> Search
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="d-flex justify-content-center gap-3 flex-wrap" data-aos="zoom-in">
+      <a href="#featured-deals" class="btn btn-primary btn-lg px-4">View Weekend Deals</a>
+      <a href="#taste-match" class="btn btn-outline-light btn-lg px-4">Try Taste Match</a>
+    </div>
+  </div>
+</section>
+
+<!-- Calendar Section -->
+<section class="calendar-section" id="plan-your-visit">
+  <div class="container">
+    <h2 class="text-center mb-4">Plan Your Visit</h2>
+    <p class="text-center mb-5">Select a date to view available activities and create your perfect Edinburgh itinerary</p>
+
+    <div class="calendar-container">
+      <div class="calendar-header">
+        <div class="month-nav">
+          <i class="fas fa-chevron-left"></i>
+        </div>
+        <div class="month-selector">May 2025</div>
+        <div class="month-nav">
+          <i class="fas fa-chevron-right"></i>
+        </div>
+      </div>
+
+      <div class="calendar-grid">
+        <!-- Weekday headers -->
+        <div class="calendar-weekday">Sun</div>
+        <div class="calendar-weekday">Mon</div>
+        <div class="calendar-weekday">Tue</div>
+        <div class="calendar-weekday">Wed</div>
+        <div class="calendar-weekday">Thu</div>
+        <div class="calendar-weekday">Fri</div>
+        <div class="calendar-weekday">Sat</div>
+
+        <!-- Week 1 -->
+        <div class="calendar-day day-inactive">
+          <div class="day-number">27</div>
+        </div>
+        <div class="calendar-day day-inactive">
+          <div class="day-number">28</div>
+        </div>
+        <div class="calendar-day day-inactive">
+          <div class="day-number">29</div>
+        </div>
+        <div class="calendar-day day-inactive">
+          <div class="day-number">30</div>
+        </div>
+        <div class="calendar-day featured-day">
+          <div class="day-number">1</div>
+          <div class="featured-badge">!</div>
+          <div class="event-pill event-culture">
+            <i class="fas fa-mug-hot"></i> Tea Tasting
+          </div>
+        </div>
+        <div class="calendar-day">
+          <div class="day-number">2</div>
+          <div class="event-pill event-tour">
+            <i class="fas fa-walking"></i> Castle Tour
+          </div>
+        </div>
+        <div class="calendar-day">
+          <div class="day-number">3</div>
+        </div>
+
+        <!-- Week 2 -->
+        <div class="calendar-day">
+          <div class="day-number">4</div>
+          <div class="event-pill event-food">
+            <i class="fas fa-utensils"></i> Food Festival
+          </div>
+        </div>
+        <div class="calendar-day featured-day">
+          <div class="day-number">5</div>
+          <div class="featured-badge">!</div>
+          <div class="event-pill event-culture">
+            <i class="fas fa-leaf"></i> Herbal Workshop
+          </div>
+        </div>
+        <div class="calendar-day">
+          <div class="day-number">6</div>
+        </div>
+        <div class="calendar-day">
+          <div class="day-number">7</div>
+          <div class="event-pill event-tour">
+            <i class="fas fa-ghost"></i> Ghost Tour
+          </div>
+        </div>
+        <div class="calendar-day">
+          <div class="day-number">8</div>
+        </div>
+        <div class="calendar-day">
+          <div class="day-number">9</div>
+        </div>
+        <div class="calendar-day">
+          <div class="day-number">10</div>
+          <div class="event-pill event-food">
+            <i class="fas fa-cheese"></i> Cheese Tasting
+          </div>
+        </div>
+
+        <!-- Week 3 -->
+        <div class="calendar-day today">
+          <div class="day-number">11</div>
+          <div class="event-pill event-culture">
+            <i class="fas fa-music"></i> Folk Music
+          </div>
+          <div class="event-pill event-food">
+            <i class="fas fa-glass-whiskey"></i> Whisky Tour
+          </div>
+        </div>
+        <div class="calendar-day">
+          <div class="day-number">12</div>
+        </div>
+        <div class="calendar-day">
+          <div class="day-number">13</div>
+        </div>
+        <div class="calendar-day">
+          <div class="day-number">14</div>
+          <div class="event-pill event-tour">
+            <i class="fas fa-mountain"></i> Hiking Trip
+          </div>
+        </div>
+        <div class="calendar-day featured-day">
+          <div class="day-number">15</div>
+          <div class="featured-badge">!</div>
+          <div class="event-pill event-culture">
+            <i class="fas fa-theater-masks"></i> Theatre Show
+          </div>
+        </div>
+        <div class="calendar-day">
+          <div class="day-number">16</div>
+        </div>
+        <div class="calendar-day">
+          <div class="day-number">17</div>
+          <div class="event-pill event-food">
+            <i class="fas fa-beer"></i> Craft Beer
+          </div>
+        </div>
+
+        <!-- Week 4 -->
+        <div class="calendar-day">
+          <div class="day-number">18</div>
+        </div>
+        <div class="calendar-day">
+          <div class="day-number">19</div>
+        </div>
+        <div class="calendar-day">
+          <div class="day-number">20</div>
+          <div class="event-pill event-culture">
+            <i class="fas fa-palette"></i> Art Gallery
+          </div>
+        </div>
+        <div class="calendar-day">
+          <div class="day-number">21</div>
+        </div>
+        <div class="calendar-day">
+          <div class="day-number">22</div>
+        </div>
+        <div class="calendar-day featured-day">
+          <div class="day-number">23</div>
+          <div class="featured-badge">!</div>
+          <div class="event-pill event-tour">
+            <i class="fas fa-water"></i> Boat Tour
+          </div>
+        </div>
+        <div class="calendar-day">
+          <div class="day-number">24</div>
+        </div>
+
+        <!-- Week 5 -->
+        <div class="calendar-day">
+          <div class="day-number">25</div>
+          <div class="event-pill event-food">
+            <i class="fas fa-cookie"></i> Baking Class
+          </div>
+        </div>
+        <div class="calendar-day">
+          <div class="day-number">26</div>
+        </div>
+        <div class="calendar-day">
+          <div class="day-number">27</div>
+        </div>
+        <div class="calendar-day">
+          <div class="day-number">28</div>
+          <div class="event-pill event-culture">
+            <i class="fas fa-book"></i> Literary Tour
+          </div>
+        </div>
+        <div class="calendar-day">
+          <div class="day-number">29</div>
+        </div>
+        <div class="calendar-day">
+          <div class="day-number">30</div>
+        </div>
+        <div class="calendar-day">
+          <div class="day-number">31</div>
+          <div class="event-pill event-tour">
+            <i class="fas fa-camera"></i> Photo Walk
+          </div>
+        </div>
+      </div>
+
+      <div class="legend">
+        <div class="legend-item">
+          <div class="legend-color" style="background-color: #e9f2ff;"></div>
+          <div>Cultural Events</div>
+        </div>
+        <div class="legend-item">
+          <div class="legend-color" style="background-color: #e6f7ef;"></div>
+          <div>Food & Drink</div>
+        </div>
+        <div class="legend-item">
+          <div class="legend-color" style="background-color: #fff3cd;"></div>
+          <div>Tours & Activities</div>
+        </div>
+        <div class="legend-item">
+          <div class="featured-badge" style="position: static; margin-right: 0.5rem;">!</div>
+          <div>Featured Events</div>
+        </div>
+      </div>
+
+      <div class="text-center mt-4">
+        <a href="itinerary-planner.html" class="btn btn-primary">Create My Itinerary</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</body>
+
+
+
+<!-- Feature Highlights Section -->
+<section class="py-5" id="feature-highlights">
+  <div class="container">
+    <div class="section-header text-center mb-5">
+      <h2>Explore Our Features</h2>
+      <p class="lead">Discover what makes Edinburgh Explorer special</p>
+    </div>
+    <div class="row g-4">
+      <!-- Taste Match Card -->
+      <div class="col-md-4" data-aos="fade-up">
+        <div class="feature-card">
+          <div class="feature-content text-center">
+            <i class="fas fa-utensils feature-icon"></i>
+            <span class="feature-badge badge-live">Live Feature</span>
+            <h4 class="feature-title">Taste Match</h4>
+            <p class="feature-description">Find restaurants perfectly matched to your cravings</p>
+            <a href="taste-match.html" class="btn btn-primary feature-btn">Try Now</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Itinerary Planner Card -->
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+        <div class="feature-card">
+          <div class="feature-content text-center">
+            <i class="fas fa-route feature-icon"></i>
+            <span class="feature-badge badge-coming">Coming Soon</span>
+            <h4 class="feature-title">Itinerary Planner</h4>
+            <p class="feature-description">Create your perfect weekend schedule</p>
+            <button class="btn btn-outline-secondary feature-btn" disabled>Coming Soon</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Local Events Card -->
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+        <div class="feature-card">
+          <div class="feature-content text-center">
+            <i class="fas fa-calendar-alt feature-icon"></i>
+            <span class="feature-badge badge-coming">Coming Soon</span>
+            <h4 class="feature-title">Local Events</h4>
+            <p class="feature-description">Discover festivals and happenings</p>
+            <button class="btn btn-outline-secondary feature-btn" disabled>Coming Soon</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Taste Match Demo Section -->
+<section class="py-5" id="taste-match">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-6 mb-4 mb-lg-0" data-aos="fade-right">
+        <h2>Your Perfect Edinburgh Dining Experience</h2>
+        <p class="lead">Our Taste Match algorithm recommends the best restaurants based on:</p>
+        <ul class="list-unstyled">
+          <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i> Dietary requirements</li>
+          <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i> Preferred cuisines</li>
+          <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i> Budget range</li>
+          <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i> Location preferences</li>
+        </ul>
+        <div class="mt-4">
+          <a href="taste-match.html" class="btn btn-primary btn-lg me-3 mb-2">Try Taste Match</a>
+          <a href="#featured-restaurants" class="btn btn-outline-primary btn-lg mb-2">See Examples</a>
+        </div>
+      </div>
+      <div class="col-lg-6" data-aos="fade-left">
+        <div class="card shadow">
+          <img src="images/seafood_restaurant.jpg" class="card-img-top" alt="Taste Match interface showing restaurant recommendations" loading="lazy">
+          <div class="card-body text-center">
+            <p class="text-muted">Example recommendation from our database</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Limited Time Offer -->
+<section class="bg-light py-5" id="limited-offer">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-10">
+        <div class="card offer-card" data-aos="zoom-in">
+          <div class="card-body text-center p-4">
+            <div class="ribbon">Limited Time</div>
+            <h2 class="card-title">Exclusive Weekend Package</h2>
+            <p class="lead mb-4">Book a full weekend experience with 20% off regular prices</p>
+
+            <div class="countdown-container mb-4">
+              <div class="countdown-block">
+                <span id="countdown-days" class="countdown-value">03</span>
+                <span class="countdown-label">Days</span>
+              </div>
+              <div class="countdown-block">
+                <span id="countdown-hours" class="countdown-value">18</span>
+                <span class="countdown-label">Hours</span>
+              </div>
+              <div class="countdown-block">
+                <span id="countdown-minutes" class="countdown-value">45</span>
+                <span class="countdown-label">Mins</span>
+              </div>
+              <div class="countdown-block">
+                <span id="countdown-seconds" class="countdown-value">22</span>
+                <span class="countdown-label">Secs</span>
+              </div>
+            </div>
+
+            <a href="#" class="btn btn-primary btn-lg">Claim This Deal</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Featured Deals Section -->
+<!-- Featured Deals Section -->
+<section id="featured-deals" class="py-5">
+  <div class="container">
+    <div class="section-header text-center mb-5" data-aos="fade-up">
+      <h2>Weekend Deals</h2>
+      <p class="lead">Unbeatable offers for your next Edinburgh escape</p>
+    </div>
+
+    <div class="row g-4">
+      <!-- Deal 1: Historic Adventure -->
+      <div class="col-md-4" data-aos="fade-up">
+        <div class="card h-100 shadow">
+          <img src="images/explorer.jpeg" class="card-img-top" alt="Historic Adventure Tour" loading="lazy">
+          <div class="card-body d-flex flex-column justify-content-between">
+            <div>
+              <span class="badge bg-success mb-2">Top Rated</span>
+              <h5 class="card-title">Historic Adventure Tour</h5>
+              <p class="card-text">Explore the Royal Mile with expert guides and skip-the-line castle access.</p>
+            </div>
+            <div class="mt-3">
+              <div class="d-flex justify-content-between align-items-center mb-2">
+                <div>
+                  <span class="text-muted text-decoration-line-through me-2">£65</span>
+                  <span class="text-primary fw-bold">£52</span>
+                </div>
+                <div class="text-warning">
+                  <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                  <i class="fas fa-star-half-alt"></i>
+                </div>
+              </div>
+              <a href="#" class="btn btn-primary w-100">View Details</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Deal 2: Whisky Tasting -->
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+        <div class="card h-100 shadow">
+          <img src="images/whiskey.jpeg" class="card-img-top" alt="Whisky Tasting Experience" loading="lazy">
+          <div class="card-body d-flex flex-column justify-content-between">
+            <div>
+              <span class="badge bg-warning text-dark mb-2">Bestseller</span>
+              <h5 class="card-title">Whisky Tasting Experience</h5>
+              <p class="card-text">Sample premium Scotch whiskies with expert guidance and a souvenir glass.</p>
+            </div>
+            <div class="mt-3">
+              <div class="d-flex justify-content-between align-items-center mb-2">
+                <div>
+                  <span class="text-muted text-decoration-line-through me-2">£45</span>
+                  <span class="text-primary fw-bold">£38</span>
+                </div>
+                <div class="text-warning">
+                  <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                </div>
+              </div>
+              <a href="#" class="btn btn-primary w-100">Book Now</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Deal 3: Sunset Hike -->
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+        <div class="card h-100 shadow">
+          <img src="images/hike.jpeg" class="card-img-top" alt="Arthur's Seat Sunset Hike" loading="lazy">
+          <div class="card-body d-flex flex-column justify-content-between">
+            <div>
+              <span class="badge bg-info text-dark mb-2">Popular</span>
+              <h5 class="card-title">Arthur's Seat Sunset Hike</h5>
+              <p class="card-text">Guided evening hike with panoramic views and a scenic picnic.</p>
+            </div>
+            <div class="mt-3">
+              <div class="d-flex justify-content-between align-items-center mb-2">
+                <div>
+                  <span class="text-muted text-decoration-line-through me-2">£32</span>
+                  <span class="text-primary fw-bold">£25</span>
+                </div>
+                <div class="text-warning">
+                  <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                  <i class="far fa-star"></i>
+                </div>
+              </div>
+              <a href="#" class="btn btn-primary w-100">Reserve Spot</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="exclusive-vouchers" class="py-5">
+  <div class="container">
+    <div class="section-header text-center mb-5" data-aos="fade-up">
+      <h2>Exclusive Vouchers for Members</h2>
+      <p class="lead">Unlock special deals by signing up</p>
+    </div>
+
+    <div class="row g-4">
+      <!-- Voucher 1 -->
+      <div class="col-md-4" data-aos="fade-up">
+        <div class="deal-card card h-100 shadow">
+          <img src="images/voucher3.png" class="card-img-top" alt="Local Events" loading="lazy">
+          <div class="card-body d-flex flex-column justify-content-between">
+            <div>
+              <span class="badge bg-success mb-2">Limited Time</span>
+              <h5 class="card-title">Local Events & Festivals</h5>
+              <p class="card-text">Save 20% on tickets for Edinburgh's most exciting events and festivals.</p>
+            </div>
+            <div class="mt-3">
+              <div class="d-flex justify-content-between align-items-center mb-2">
+                <div>
+                  <span class="text-muted text-decoration-line-through me-2">£50</span>
+                  <span class="text-primary fw-bold">£40</span>
+                </div>
+                <div class="text-warning">
+                  <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                  <i class="fas fa-star-half-alt"></i>
+                </div>
+              </div>
+              <a href="register.html" class="btn btn-primary w-100">Claim Offer</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Voucher 2 -->
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+        <div class="deal-card card h-100 shadow">
+          <img src="images/deal%201.PNG" class="card-img-top" alt="Whiskey Experience" loading="lazy">
+          <div class="card-body d-flex flex-column justify-content-between">
+            <div>
+              <span class="badge bg-warning text-dark mb-2">Popular</span>
+              <h5 class="card-title">Whiskey Experience</h5>
+              <p class="card-text">Save 25% on a guided whiskey tasting experience in Edinburgh.</p>
+            </div>
+            <div class="mt-3">
+              <div class="d-flex justify-content-between align-items-center mb-2">
+                <div>
+                  <span class="text-muted text-decoration-line-through me-2">£40</span>
+                  <span class="text-primary fw-bold">£30</span>
+                </div>
+                <div class="text-warning">
+                  <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                </div>
+              </div>
+              <a href="register.html" class="btn btn-primary w-100">Claim Offer</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Voucher 3 -->
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+        <div class="deal-card card h-100 shadow">
+          <img src="images/voucher2.png" class="card-img-top" alt="Dining Experience" loading="lazy">
+          <div class="card-body d-flex flex-column justify-content-between">
+            <div>
+              <span class="badge bg-danger mb-2">Hot Deal</span>
+              <h5 class="card-title">Dining Experience</h5>
+              <p class="card-text">Save 50% on an upscale dining experience at top Edinburgh restaurants.</p>
+            </div>
+            <div class="mt-3">
+              <div class="d-flex justify-content-between align-items-center mb-2">
+                <div>
+                  <span class="text-muted text-decoration-line-through me-2">£80</span>
+                  <span class="text-primary fw-bold">£40</span>
+                </div>
+                <div class="text-warning">
+                  <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                  <i class="far fa-star"></i>
+                </div>
+              </div>
+              <a href="register.html" class="btn btn-primary w-100">Claim Offer</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cta mt-5" data-aos="fade-up">
+      <h3>Join Now and Save!</h3>
+      <p class="mb-4">Sign up today to access these exclusive member-only deals and more.</p>
+      <a href="register.html" class="btn btn-success btn-lg">Sign Up Now</a>
+    </div>
+  </div>
+</section>
+
+
+
+
+<!-- Featured Restaurants Section -->
+<section id="featured-restaurants" class="py-5 bg-light">
+  <div class="container">
+    <div class="section-header text-center mb-5" data-aos="fade-up">
+      <h2>Top-Rated Dining Experiences</h2>
+      <p class="lead">Discover Edinburgh's culinary gems</p>
+    </div>
+
+    <div class="row g-4">
+      <!-- Restaurant 1 -->
+      <div class="col-md-4" data-aos="fade-up">
+        <div class="card h-100">
+          <img src="images/witchery_castle.jpeg" class="card-img-top" alt="The Witchery restaurant" loading="lazy">
+          <div class="card-body">
+            <span class="badge cuisine-badge mb-2">Scottish</span>
+            <h4>The Witchery</h4>
+            <p class="card-text">Atmospheric dining in a historic location near Edinburgh Castle.</p>
+            <div class="mt-3 d-flex justify-content-between align-items-center">
+              <div class="rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+              </div>
+              <div>
+                <span class="price-range">£££</span>
+              </div>
+            </div>
+            <a href="restaurant-details.html" class="btn btn-primary">View Restaurant</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Restaurant 2 -->
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+        <div class="card h-100">
+          <img src="images/dishoom.webp" class="card-img-top" alt="Dishoom Edinburgh" loading="lazy">
+          <div class="card-body">
+            <span class="badge cuisine-badge mb-2">Indian</span>
+            <h4>Dishoom</h4>
+            <p class="card-text">Bombay café with a delicious all-day menu in a vintage setting.</p>
+            <div class="mt-3 d-flex justify-content-between align-items-center">
+              <div class="rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+              <div>
+                <span class="price-range">££</span>
+              </div>
+            </div>
+            <a href="restaurant-details.html" class="btn btn-primary">View Restaurant</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Restaurant 3 -->
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+        <div class="card h-100">
+          <img src="images/the-kitchin.jpg" class="card-img-top" alt="The Kitchin restaurant" loading="lazy">
+          <div class="card-body">
+            <span class="badge cuisine-badge mb-2">Fine Dining</span>
+            <h4>The Kitchin</h4>
+            <p class="card-text">Michelin-starred restaurant showcasing Scottish ingredients.</p>
+            <div class="mt-3 d-flex justify-content-between align-items-center">
+              <div class="rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+              <div>
+                <span class="price-range">££££</span>
+              </div>
+            </div>
+            <a href="restaurant-details.html" class="btn btn-primary">View Restaurant</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Testimonials Section -->
+<section class="py-5">
+  <div class="container">
+    <div class="section-header text-center mb-5" data-aos="fade-up">
+      <h2>What Visitors Say</h2>
+      <p class="lead">Experiences from our community</p>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-8 mx-auto">
+        <div class="testimonial-slider" data-aos="fade-up">
+          <!-- Testimonial 1 -->
+          <div class="testimonial-item active">
+            <div class="testimonial-content">
+              <p class="testimonial-text">"Edinburgh Explorer made our weekend trip so much easier! The TasteMatch feature found us the perfect restaurant for our anniversary dinner."</p>
+              <div class="testimonial-author">
+                <img src="images/sarah.jpg" alt="Sarah from London" class="testimonial-avatar">
+                <div>
+                  <h5 class="mb-0">Sarah Thompson</h5>
+                  <small>London, UK</small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial Navigation -->
+        <div class="testimonial-nav text-center mt-4">
+          <button class="testimonial-dot active"></button>
+          <button class="testimonial-dot"></button>
+          <button class="testimonial-dot"></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Newsletter Section -->
+<section class="py-5 bg-light">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+        <div class="card newsletter-card" data-aos="fade-up">
+          <div class="card-body text-center p-4">
+            <h3>Stay Updated</h3>
+            <p class="lead mb-4">Get exclusive Edinburgh travel tips and deals delivered to your inbox</p>
+
+            <form class="newsletter-form">
+              <div class="input-group mb-3">
+                <input type="email" class="form-control" placeholder="Your email address" aria-label="Email address">
+                <button class="btn btn-primary" type="submit">Subscribe</button>
+              </div>
+              <div class="form-text">We respect your privacy and will never share your email.</div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="pt-5 pb-3">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4 mb-4 mb-md-0">
+        <h5>Edinburgh Explorer</h5>
+        <p>Your guide to the perfect weekend in Scotland's historic capital.</p>
+        <div class="social-icons mt-3">
+          <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="#" aria-label="Pinterest"><i class="fab fa-pinterest-p"></i></a>
+        </div>
+      </div>
+
+      <div class="col-md-2 mb-4 mb-md-0">
+        <h5>Explore</h5>
+        <ul class="footer-links">
+          <li><a href="home.html">Home</a></li>
+          <li><a href="#">About Us</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="#">Blog</a></li>
+        </ul>
+      </div>
+
+      <div class="col-md-2 mb-4 mb-md-0">
+        <h5>Features</h5>
+        <ul class="footer-links">
+          <li><a href="taste-match.html">TasteMatch</a></li>
+          <li><a href="itinerary-planner.html">Itinerary Planner</a></li>
+          <li><a href="events.html">Local Events</a></li>
+          <li><a href="deals.html">Weekend Deals</a></li>
+        </ul>
+      </div>
+
+      <div class="col-md-4">
+        <h5>Contact Us</h5>
+        <address>
+          <p><i class="fas fa-map-marker-alt me-2"></i> 123 Royal Mile, Edinburgh, UK</p>
+          <p><i class="fas fa-phone me-2"></i> +44 (0)131 123 4567</p>
+          <p><i class="fas fa-envelope me-2"></i> hello@edinburghexplorer.com</p>
+        </address>
+      </div>
+    </div>
+
+    <hr class="mt-4">
+
+    <div class="row">
+      <div class="col-md-6 mb-3 mb-md-0">
+        <p class="mb-0">&copy; 2025 Edinburgh Explorer. All rights reserved.</p>
+      </div>
+      <div class="col-md-6 text-md-end">
+        <ul class="footer-legal">
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Service</a></li>
+          <li><a href="#">Cookie Policy</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

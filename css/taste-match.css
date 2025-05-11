@@ -1,0 +1,928 @@
+/* taste-match.css - Premium Edinburgh Dining Experience */
+:root {
+    /* Edinburgh Culinary Color Palette */
+    --primary-color: #456268;           /* Edinburgh teal */
+    --primary-dark: #324b50;            /* Darker teal */
+    --secondary-color: #b56b45;         /* Terracotta */
+    --accent-color: #d4b483;            /* Buttercream */
+    --dark-color: #2d3c3f;              /* Slate */
+    --light-color: #f8f5f0;             /* Linen */
+    --menu-bg: #fff9f0;                 /* Parchment */
+
+    /* Effects */
+    --card-shadow: 0 12px 30px rgba(45, 60, 63, 0.15);
+    --hover-shadow: 0 18px 45px rgba(181, 107, 69, 0.2);
+    --transition-speed: 0.4s;
+}
+
+/* Base Styles */
+body.taste-match-page {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--light-color);
+    color: var(--dark-color);
+    padding-top: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+}
+.navbar {
+    background-color: rgba(255, 255, 255, 0.95) !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 3px solid var(--accent-color);
+    padding: 12px 0;
+    position: relative; /* Changed to relative positioning */
+    width: 100%;
+    top: auto; /* Remove top positioning */
+}
+
+.navbar-brand {
+    font-weight: 700;
+    color: var(--primary-color) !important;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    letter-spacing: 0.5px;
+    position: relative;
+    overflow: hidden;
+}
+
+.navbar-brand img {
+    width: 160px; /* Adjust width as needed */
+    height: 120px; /* Maintain aspect ratio */
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    filter: drop-shadow(0 3px 6px rgba(0,0,0,0.15));
+}
+
+.navbar-brand:hover img {
+    transform: rotate(-5deg) scale(1.1);
+    filter: drop-shadow(0 5px 10px rgba(0,0,0,0.2)) brightness(1.1);
+}
+
+.navbar-brand::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    bottom: -10px;
+    left: 0;
+    background: var(--secondary-gradient);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.5s ease;
+}
+
+.navbar-brand:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+.nav-link {
+    font-weight: 600;
+    color: var(--dark-color) !important;
+    position: relative;
+    margin: 0 12px;
+    padding: 5px 0;
+    transition: all var(--transition-speed) cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.nav-link.active,
+.nav-link:hover {
+    color: var(--primary-color) !important;
+    transform: translateY(-2px);
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background: var(--primary-gradient);
+    transition: width var(--transition-speed) ease;
+    border-radius: 2px;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+    width: 100%;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Hero Section */
+.taste-match-hero {
+    background: linear-gradient(rgba(45, 60, 63, 0.85),
+    rgba(69, 98, 104, 0.8)),
+    url('../images/pic.jpg') center/cover;
+    padding: 180px 0 120px;
+    color: white;
+    text-align: center;
+    position: relative;
+    margin-top: 80px; /* Account for fixed navbar */
+}
+
+.taste-match-hero h1 {
+    font-size: 3.2rem;
+    margin-bottom: 1.5rem;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+.taste-match-hero .lead {
+    font-size: 1.3rem;
+    max-width: 700px;
+    margin: 0 auto 2.5rem;
+    opacity: 0.9;
+}
+
+.scroll-btn {
+    transition: all 0.3s ease;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(5px); }
+    100% { transform: translateY(0); }
+}
+
+/* FORM SECTION ONLY - Streamlined CSS */
+.preference-section {
+    padding: 5rem 0;
+    background: var(--menu-bg);
+    position: relative;
+}
+
+.preference-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 8px;
+    background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+}
+
+.preference-card {
+    background: white;
+    border-radius: 12px;
+    box-shadow: var(--card-shadow);
+    transition: transform 0.3s ease;
+}
+
+.preference-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--hover-shadow);
+}
+
+.card-header {
+    background: var(--primary-color);
+    color: white;
+    padding: 1.5rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+    border-bottom: 3px solid var(--accent-color);
+}
+
+/* Form Elements */
+.culinary-form {
+    padding: 2rem;
+}
+
+.form-section {
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px dashed rgba(69, 98, 104, 0.2);
+}
+
+.form-section-title {
+    color: var(--primary-dark);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* Occasion Dropdown */
+#occasionSelect {
+    padding: 0.6rem 1rem;
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+}
+
+/* Cuisine Options */
+#cuisine-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 0.75rem;
+}
+
+.cuisine-option label {
+    display: block;
+    padding: 0.75rem;
+    background: rgba(245, 245, 245, 0.7);
+    border: 1px solid rgba(69, 98, 104, 0.1);
+    border-radius: 8px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.cuisine-option input:checked + label {
+    background: var(--accent-color);
+    border-color: var(--secondary-color);
+    font-weight: 600;
+}
+
+/* Price Range */
+.price-range-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: center;
+}
+
+.price-range-buttons .form-check-label {
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    background: rgba(245, 245, 245, 0.7);
+    border: 1px solid rgba(69, 98, 104, 0.1);
+}
+
+.price-range-buttons input:checked + .form-check-label {
+    background: var(--secondary-color);
+    color: white;
+}
+
+/* Dietary Options */
+/* Dietary Needs - Better Proportions */
+.dietary-options {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 0.5rem;
+}
+
+.dietary-options label {
+    padding: 0.6rem;
+    font-size: 0.9rem;
+}
+
+.dietary-options input:checked + label {
+    background: var(--accent-color);
+}
+
+/* Submit Button */
+#findMatchesBtn {
+    background: var(--secondary-color);
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    font-weight: 600;
+    margin-top: 1rem;
+    transition: all 0.2s;
+}
+
+#findMatchesBtn:hover {
+    background: var(--primary-color);
+    transform: translateY(-2px);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    #cuisine-container,
+    .dietary-options {
+        grid-template-columns: 1fr;
+    }
+
+    .price-range-buttons {
+        flex-direction: column;
+        align-items: stretch;
+    }
+}s
+
+/* Buttons */
+.btn-tastematch {
+    background: var(--secondary-color);
+    color: white;
+    border: none;
+    padding: 12px 28px;
+    border-radius: 8px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    transition: all 0.3s;
+    box-shadow: 0 4px 15px rgba(181, 107, 69, 0.3);
+}
+
+.btn-tastematch:hover {
+    background: var(--primary-color);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(69, 98, 104, 0.4);
+    color: white;
+}
+
+/* Results Section */
+.results-section {
+    padding: 80px 0;
+    background: white;
+}
+
+.results-count-badge {
+    display: inline-block;
+    background: var(--primary-color);
+    color: white;
+    padding: 8px 20px;
+    border-radius: 30px;
+    margin-top: 1rem;
+    font-weight: 600;
+}
+
+/* Restaurant Cards */
+.restaurant-card {
+    border: none;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--card-shadow);
+    transition: all var(--transition-speed);
+    margin-bottom: 30px;
+    background: white;
+    height: 100%;
+}
+
+.restaurant-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--hover-shadow);
+}
+
+.restaurant-img {
+    height: 200px;
+    object-fit: cover;
+    width: 100%;
+    transition: transform 0.5s;
+}
+
+.restaurant-card:hover .restaurant-img {
+    transform: scale(1.05);
+}
+
+.restaurant-body {
+    padding: 1.5rem;
+}
+
+.restaurant-title {
+    font-family: 'Playfair Display', serif;
+    color: var(--dark-color);
+    margin-bottom: 0.75rem;
+    font-size: 1.4rem;
+}
+
+.restaurant-description {
+    color: var(--dark-color);
+    opacity: 0.8;
+    margin-bottom: 1.25rem;
+    font-size: 0.95rem;
+}
+
+.restaurant-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1rem;
+}
+
+.restaurant-rating {
+    color: var(--secondary-color);
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.restaurant-price {
+    background: var(--accent-color);
+    color: var(--dark-color);
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .taste-match-hero {
+        padding: 120px 0 80px;
+    }
+
+    .taste-match-hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .preference-card {
+        margin-bottom: 20px;
+    }
+
+    .dietary-options .form-check {
+        flex: 1 1 100%;
+    }
+}
+/* Add to taste-match.css */
+
+/* Occasion Select Dropdown */
+.occasion-select {
+    border: 1px solid rgba(69, 98, 104, 0.2);
+    border-radius: 8px;
+    padding: 12px 20px;
+    font-size: 1rem;
+    color: var(--dark-color);
+    background-color: rgba(245, 245, 245, 0.7);
+    transition: all 0.3s;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.occasion-select:focus {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 0.25rem rgba(212, 180, 131, 0.25);
+}
+
+/* Improved Dietary Options */
+.dietary-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.dietary-label {
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+    border-radius: 8px;
+    background: rgba(245, 245, 245, 0.7);
+    border: 1px solid rgba(69, 98, 104, 0.1);
+    transition: all 0.3s;
+    width: 100%;
+}
+
+.dietary-options .form-check-input:checked + .dietary-label {
+    background: var(--accent-color);
+    color: var(--dark-color);
+    border-color: var(--secondary-color);
+    font-weight: 500;
+}
+
+/* Form Select Styling */
+.form-select {
+    background-image: url("data:../images/aisha.jpg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%232d3c3f' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e");
+    background-position: right 1rem center;
+    background-size: 16px 12px;
+}
+
+/* Improved Form Section Spacing */
+.form-section {
+    padding: 1.5rem;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.7);
+    margin-bottom: 1.5rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.form-section-title {
+    margin-bottom: 1.5rem;
+    color: var(--primary-dark);
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+/* Additional styles for the taste-match-results page */
+
+/* You can add this to your existing taste-match.css file */
+
+/* Hero section for results page */
+.taste-match-results-hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../images/edinburgh-dining.jpg') no-repeat center center;
+    background-size: cover;
+    color: white;
+    padding: 120px 0 60px;
+    margin-bottom: 20px;
+}
+
+.taste-match-results-hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+}
+
+/* Results count badge */
+.results-count-badge {
+    display: inline-block;
+    background-color: #ff6b6b;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    font-weight: 600;
+}
+
+/* Restaurant cards */
+.restaurant-card {
+    transition: transform 0.3s, box-shadow 0.3s;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.restaurant-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.restaurant-card .card-img-top {
+    height: 200px;
+    object-fit: cover;
+}
+
+.restaurant-card .card-title {
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
+}
+/* Base Styles */
+body.taste-match-results-page {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--light-color);
+    color: var(--dark-color);
+    padding-top: 0;
+}
+
+/* Hero Section - Results Page Specific */
+.taste-match-results-hero {
+    background: linear-gradient(rgba(69, 98, 104, 0.85), rgba(45, 60, 63, 0.8)),
+    url('../images/edinburgh-dining.jpg') center/cover;
+    padding: 150px 0 80px;
+    color: white;
+    text-align: center;
+    position: relative;
+    margin-top: 80px;
+}
+
+.taste-match-results-hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+.taste-match-results-hero .lead {
+    font-size: 1.2rem;
+    max-width: 700px;
+    margin: 0 auto;
+    opacity: 0.9;
+}
+
+/* Results Section */
+.results-section {
+    padding: 5rem 0;
+    background-color: var(--light-color);
+}
+
+.section-title {
+    font-family: 'Playfair Display', serif;
+    color: var(--primary-dark);
+    font-weight: 700;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background: var(--secondary-color);
+}
+
+.results-count-badge {
+    background: var(--secondary-color);
+    color: white;
+    padding: 8px 20px;
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+/* Filter Controls */
+.input-group-text {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+}
+
+.form-select {
+    border: 1px solid rgba(69, 98, 104, 0.2);
+    border-radius: 0 8px 8px 0 !important;
+    padding: 10px 15px;
+    font-size: 0.95rem;
+    color: var(--dark-color);
+    background-color: white;
+}
+
+.form-select:focus {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 0.25rem rgba(212, 180, 131, 0.25);
+}
+
+/* Restaurant Cards */
+.restaurant-card {
+    border: none;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--card-shadow);
+    transition: all var(--transition-speed);
+    margin-bottom: 30px;
+    background: white;
+    height: 100%;
+}
+
+.restaurant-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--hover-shadow);
+}
+
+.restaurant-img {
+    height: 220px;
+    object-fit: cover;
+    width: 100%;
+    transition: transform 0.5s;
+}
+
+.restaurant-card:hover .restaurant-img {
+    transform: scale(1.05);
+}
+
+.restaurant-body {
+    padding: 1.5rem;
+}
+
+.restaurant-title {
+    font-family: 'Playfair Display', serif;
+    color: var(--dark-color);
+    margin-bottom: 0.75rem;
+    font-size: 1.4rem;
+    font-weight: 700;
+}
+
+.restaurant-description {
+    color: var(--dark-color);
+    opacity: 0.8;
+    margin-bottom: 1.25rem;
+    font-size: 0.95rem;
+}
+
+.restaurant-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1rem;
+}
+
+.restaurant-rating {
+    color: var(--secondary-color);
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.restaurant-price {
+    background: var(--accent-color);
+    color: var(--dark-color);
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+/* Cuisine Tags */
+.cuisine-tag {
+    display: inline-block;
+    background: rgba(69, 98, 104, 0.1);
+    color: var(--primary-dark);
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    margin-right: 5px;
+    margin-bottom: 5px;
+}
+
+/* Buttons */
+.btn-primary {
+    background-color: var(--secondary-color);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all var(--transition-speed);
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-color);
+    transform: translateY(-2px);
+}
+
+.btn-outline-primary {
+    color: var(--secondary-color);
+    border-color: var(--secondary-color);
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all var(--transition-speed);
+}
+
+.btn-outline-primary:hover {
+    background-color: var(--secondary-color);
+    color: white;
+    transform: translateY(-2px);
+}
+
+/* No Results State */
+#noResults {
+    padding: 4rem 0;
+}
+
+#noResults h3 {
+    font-family: 'Playfair Display', serif;
+    color: var(--primary-dark);
+    margin-bottom: 1rem;
+}
+
+#noResults .text-muted {
+    color: var(--dark-color);
+    opacity: 0.7;
+}
+
+/* Footer */
+.footer {
+    background-color: var(--dark-color);
+    padding: 3rem 0;
+}
+
+.footer h5 {
+    font-family: 'Playfair Display', serif;
+    margin-bottom: 1rem;
+    color: var(--accent-color);
+}
+
+.footer a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer a:hover {
+    color: var(--accent-color);
+}
+
+.social-icons a {
+    display: inline-block;
+    width: 36px;
+    height: 36px;
+    line-height: 36px;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    margin-right: 8px;
+    transition: all 0.3s;
+}
+
+.social-icons a:hover {
+    background: var(--accent-color);
+    color: var(--dark-color);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .taste-match-results-hero {
+        padding: 120px 0 60px;
+    }
+
+    .taste-match-results-hero h1 {
+        font-size: 2.2rem;
+    }
+
+    .taste-match-results-hero .lead {
+        font-size: 1rem;
+    }
+
+    .results-section {
+        padding: 3rem 0;
+    }
+
+    .restaurant-img {
+        height: 180px;
+    }
+}
+
+@media (max-width: 576px) {
+    .d-flex.justify-content-between {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .results-count-badge {
+        margin-top: 1rem;
+        align-self: flex-end;
+    }
+}
+/* Footer */
+footer {
+    background: var(--dark-color);
+    color: white;
+    padding: 3rem 0 1.5rem;
+}
+
+footer h5 {
+    color: var(--accent-color);
+    margin-bottom: 1.5rem;
+    font-family: 'Playfair Display', serif;
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links li {
+    margin-bottom: 0.75rem;
+}
+
+.footer-links a {
+    color: rgba(255,255,255,0.7);
+    transition: color var(--transition-speed) ease;
+}
+
+.footer-links a:hover {
+    color: var(--accent-color);
+    text-decoration: none;
+}
+
+.social-icons {
+    display: flex;
+    gap: 1rem;
+}
+
+.social-icons a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.1);
+    color: white;
+    transition: all var(--transition-speed) ease;
+}
+
+.social-icons a:hover {
+    background: var(--accent-color);
+    color: var(--dark-color);
+    transform: translateY(-3px);
+}
+
+.footer-legal {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-end;
+}
+
+.footer-legal a {
+    color: rgba(255,255,255,0.7);
+    font-size: 0.9rem;
+}
+
+.footer-legal a:hover {
+    color: white;
+}
+
+/* Animations */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+

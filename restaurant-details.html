@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Restaurant Details - Edinburgh Explorer</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link href="css/taste-match.css" rel="stylesheet">
+</head>
+<body class="restaurant-details-page">
+<!-- Navigation (same as before) -->
+<nav class="navbar navbar-expand-lg navbar-light fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <img src="images/logocw2.PNG" alt="Edinburgh Explorer Logo" height="60" width="150"  />
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarContent">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link active" href="home.html">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="itinerary-planner.html">Itinerary Planner </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="taste-match.html">TasteMatch</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="events.html">Local Events & Festivals </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="contact.html">Contact</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="index.html">Login</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Restaurant Details Section -->
+<section class="restaurant-details py-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8">
+        <div class="card mb-4">
+          <img id="restaurantImage" src="" class="card-img-top" alt="">
+          <div class="card-body">
+            <h1 id="restaurantName" class="card-title"></h1>
+            <div class="d-flex flex-wrap mb-3">
+              <span id="priceBadge" class="badge me-2 mb-2"></span>
+              <span id="cuisineBadges" class="d-inline-flex flex-wrap"></span>
+            </div>
+            <p id="restaurantDescription" class="card-text"></p>
+
+            <div class="row mt-4">
+              <div class="col-md-6">
+                <h5><i class="fas fa-map-marker-alt me-2"></i> Address</h5>
+                <p id="restaurantAddress"></p>
+              </div>
+              <div class="col-md-6">
+                <h5><i class="fas fa-clock me-2"></i> Opening Hours</h5>
+                <p id="restaurantHours"></p>
+              </div>
+            </div>
+
+            <div class="row mt-3">
+              <div class="col-md-6">
+                <h5><i class="fas fa-phone me-2"></i> Contact</h5>
+                <p id="restaurantPhone"></p>
+              </div>
+              <div class="col-md-6">
+                <h5><i class="fas fa-utensils me-2"></i> Dietary Options</h5>
+                <p id="restaurantDietary"></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-4">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Make a Reservation</h5>
+            <a id="bookBtn" href="#" class="btn btn-primary w-100 mb-3" target="_blank">
+              <i class="fas fa-calendar-check me-2"></i> Book a Table
+            </a>
+
+
+            <div class="d-grid gap-2">
+              <a href="taste-match-results.html" class="btn btn-outline-secondary">
+                <i class="fas fa-arrow-left me-2"></i> Back to Results
+              </a>
+              <a href="taste-match.html" class="btn btn-outline-primary">
+                <i class="fas fa-redo me-2"></i> Start New Search
+              </a>
+            </div>
+
+            <hr>
+
+            <h5 class="mt-3">Share This Restaurant</h5>
+            <div class="d-flex justify-content-between">
+              <a href="#" class="btn btn-outline-primary btn-sm"><i class="fab fa-facebook-f"></i></a>
+              <a href="#" class="btn btn-outline-info btn-sm"><i class="fab fa-twitter"></i></a>
+              <a href="#" class="btn btn-outline-danger btn-sm"><i class="fab fa-instagram"></i></a>
+              <a href="#" class="btn btn-outline-success btn-sm"><i class="fab fa-whatsapp"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/restaurant-details.js"></script>
+<!-- Restaurant Data (hidden) -->
+<script type="application/json" id="restaurantData">
+  {
+    "restaurants": [
+      {
+        "name": "The Kitchin",
+        "thumbnail": "images/the-kitchin.jpg",
+        "cuisine": ["Scottish", "Modern"],
+        "price_range": "£££",
+        "dietary_restrictions": ["Vegan", "Gluten-Free", "No Restrictions"],
+        "occasion": ["Romantic Dinner", "Fine Dining"],
+        "address": "78 Commercial Quay, Edinburgh, EH6 6LX",
+        "phone": "0131 555 1755",
+        "hours": "Mon-Sat: 12pm-2pm, 6pm-10pm, Sun: Closed",
+        "description": "Award-winning restaurant focusing on locally sourced, modern Scottish cuisine.",
+        "book_url": "https://thekitchin.com/",
+        "alt_text": "The Kitchin - Scottish Modern restaurant"
+      },
+      {
+        "name": "Dishoom Edinburgh",
+        "thumbnail": "images/dishoom.webp",
+        "cuisine": ["Asian Fusion", "Indian"],
+        "price_range": "££",
+        "dietary_restrictions": ["Vegan", "Gluten-Free"],
+        "occasion": ["Casual Lunch", "Dinner"],
+        "address": "3 St Andrew Square, Edinburgh, EH2 2BD",
+        "phone": "0131 510 3800",
+        "hours": "Mon-Sun: 12pm-10pm",
+        "description": "Fusion of traditional Indian flavors with a contemporary twist, offering vegan and gluten-free options.",
+        "book_url": "https://www.dishoom.com/",
+        "alt_text": "Dishoom - Indian Fusion restaurant"
+      },
+      {
+        "name": "The Dome",
+        "thumbnail": "images/the_dome.jpg",
+        "cuisine": ["International", "European"],
+        "price_range": "£££",
+        "dietary_restrictions": ["Vegan", "Gluten-Free", "No Restrictions"],
+        "occasion": ["Romantic Dinner", "Fine Dining"],
+        "address": "14 George Street, Edinburgh, EH2 2PF",
+        "phone": "0131 624 8624",
+        "hours": "Mon-Sun: 9am-12am",
+        "description": "A grand, elegant setting for British and international cuisine, perfect for special occasions.",
+        "book_url": "https://www.thedomeedinburgh.com/",
+        "alt_text": "The Dome - Elegant British and international cuisine"
+      },
+      {
+        "name": "La P'tite Folie",
+        "thumbnail": "images/La P'tite Folie.jpeg",
+        "cuisine": ["French", "Bistro"],
+        "price_range": "££",
+        "dietary_restrictions": ["No Restrictions"],
+        "occasion": ["Casual Lunch"],
+        "address": "56 Broughton St, Edinburgh, EH1 3SA",
+        "phone": "0131 557 0850",
+        "hours": "Mon-Sat: 12pm-3pm, 5pm-10pm",
+        "description": "A cozy French bistro offering affordable classic French cuisine.",
+        "book_url": "https://www.laptitefolie.co.uk/",
+        "alt_text": "La P'tite Folie - French bistro"
+      },
+      {
+        "name": "The Bon Vivant",
+        "thumbnail": "images/The Bon Vivant.jpeg",
+        "cuisine": ["Mediterranean", "Modern European"],
+        "price_range": "££",
+        "dietary_restrictions": ["Gluten-Free", "No Restrictions"],
+        "occasion": ["Romantic Dinner", "Casual Lunch"],
+        "address": "19-23 Thistle Street, Edinburgh, EH2 1DF",
+        "phone": "0131 225 1195",
+        "hours": "Mon-Sun: 12pm-10pm",
+        "description": "A stylish Mediterranean-inspired eatery with a contemporary vibe and gluten-free options.",
+        "book_url": "https://bonvivantedinburgh.co.uk/",
+        "alt_text": "The Bon Vivant - Mediterranean restaurant"
+      },
+      {
+        "name": "Mamma's Pizza",
+        "thumbnail": "images/Mamma's Pizza.jpeg",
+        "cuisine": ["Italian", "Pizza"],
+        "price_range": "£",
+        "dietary_restrictions": ["Vegan", "Gluten-Free"],
+        "occasion": ["Casual Lunch", "Dinner"],
+        "address": "5 Royal Mile, Edinburgh, EH1 1NJ",
+        "phone": "0131 225 9511",
+        "hours": "Mon-Sun: 11am-10pm",
+        "description": "Delicious pizza with a variety of vegan and gluten-free options.",
+        "book_url": "https://www.mammas.co.uk/",
+        "alt_text": "Mamma's Pizza - Italian pizza restaurant"
+      },
+      {
+        "name": "Ondine Oyster & Grill",
+        "thumbnail": "images/seafood_restaurant.jpg",
+        "cuisine": ["Seafood", "Scottish"],
+        "price_range": "£££",
+        "dietary_restrictions": ["Gluten-Free", "No Restrictions"],
+        "occasion": ["Romantic Dinner", "Fine Dining"],
+        "address": "32 Victoria Street, Edinburgh, EH1 2JW",
+        "phone": "0131 225 2113",
+        "hours": "Mon-Sun: 12pm-10pm",
+        "description": "An upscale seafood restaurant offering the finest seafood with gluten-free options.",
+        "book_url": "https://www.ondinerestaurant.co.uk/",
+        "alt_text": "The Seafood Restaurant - Scottish seafood restaurant"
+      },
+      {
+        "name": "Bodega 1900",
+        "thumbnail": "images/bodega_1900.jpeg",
+        "cuisine": ["Mediterranean", "Spanish"],
+        "price_range": "££",
+        "dietary_restrictions": ["No Restrictions"],
+        "occasion": ["Casual Lunch", "Dinner"],
+        "address": "19 Charlotte Square, Edinburgh, EH2 4DF",
+        "phone": "0131 226 5393",
+        "hours": "Mon-Sun: 12pm-10pm",
+        "description": "Spanish-inspired dishes with fresh Mediterranean ingredients.",
+        "book_url": "https://www.gastroteca.cat/en/on-tastar/bodega-1900/",
+        "alt_text": "Bodega 1900 - Spanish Mediterranean restaurant"
+      },
+      {
+        "name": "Korean BBQ",
+        "thumbnail": "images/korean_bbq.jpg",
+        "cuisine": ["Korean", "BBQ"],
+        "price_range": "££",
+        "dietary_restrictions": ["Vegan", "Gluten-Free"],
+        "occasion": ["Casual Lunch", "Dinner"],
+        "address": "12 Castle Street, Edinburgh, EH2 3AT",
+        "phone": "0131 222 2277",
+        "hours": "Mon-Sun: 12pm-10pm",
+        "description": "Korean BBQ with vegan and gluten-free options.",
+        "book_url": "https://koreanbbq.kjgroups.co.uk/",
+        "alt_text": "Korean BBQ - Korean restaurant"
+      },
+      {
+        "name": "Cafe Royal",
+        "thumbnail": "images/Cafe_Royal.webp",
+        "cuisine": ["Asian Fusion", "Japanese"],
+        "price_range": "£",
+        "dietary_restrictions": ["Vegan", "Gluten-Free"],
+        "occasion": ["Casual Lunch"],
+        "address": "8 Victoria Street, Edinburgh, EH1 2HE",
+        "phone": "0131 226 1870",
+        "hours": "Mon-Sun: 11am-8pm",
+        "description": "Japanese-inspired fusion with vegan and gluten-free options.",
+        "book_url": "https://www.caferoyaledinburgh.com/",
+        "alt_text": "Bento Café - Asian Fusion restaurant"
+      },
+      {
+        "name": "Soul Vegan",
+        "thumbnail": "images/Soul_vegan.webp",
+        "cuisine": ["Vegetarian", "Vegan", "Modern"],
+        "price_range": "££",
+        "dietary_restrictions": ["Vegan", "Gluten-Free", "No Restrictions"],
+        "occasion": ["Casual Lunch", "Dinner"],
+        "address": "14-16 St. John Street, Edinburgh, EH8 8BP",
+        "phone": "0131 228 2047",
+        "hours": "Mon-Sun: 12pm-10pm",
+        "description": "Contemporary vegan and vegetarian dishes, with locally sourced ingredients.",
+        "book_url": "https://soulvegan.uk/",
+        "alt_text": "Soul Vegan - Vegan and Vegetarian restaurant"
+      },
+      {
+        "name": "Henderson's",
+        "thumbnail": "images/hendersons.jpg",
+        "cuisine": ["Vegetarian", "Vegan", "Organic"],
+        "price_range": "££",
+        "dietary_restrictions": ["Vegan", "Gluten-Free", "No Restrictions"],
+        "occasion": ["Casual Lunch", "Dinner"],
+        "address": "25 Hanover Street, Edinburgh, EH2 2EP",
+        "phone": "0131 225 2131",
+        "hours": "Mon-Sun: 9am-10pm",
+        "description": "A vegetarian and vegan-friendly restaurant with a focus on organic ingredients.",
+        "book_url": "https://www.hendersonsrestaurant.com/",
+        "alt_text": "Henderson's - Organic Vegetarian restaurant"
+      },
+      {
+        "name": "The Witchery by the Castle",
+        "thumbnail": "images/witchery_castle.jpeg",
+        "cuisine": ["European", "Scottish"],
+        "price_range": "£££",
+        "dietary_restrictions": ["No Restrictions"],
+        "occasion": ["Romantic Dinner", "Fine Dining"],
+        "address": "Castlehill, Edinburgh, EH1 2NF",
+        "phone": "0131 225 5613",
+        "hours": "Mon-Sun: 12pm-10pm",
+        "description": "A luxurious fine-dining experience with Scottish and European classics.",
+        "book_url": "https://www.thewitchery.com/",
+        "alt_text": "The Witchery - European Scottish fine dining"
+      }
+    ]
+  }
+</script>
+<!-- Footer -->
+<footer class="pt-5 pb-3">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4 mb-4 mb-md-0">
+        <h5>Edinburgh Explorer</h5>
+        <p>Your guide to the perfect weekend in Scotland's historic capital.</p>
+        <div class="social-icons mt-3">
+          <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="#" aria-label="Pinterest"><i class="fab fa-pinterest-p"></i></a>
+        </div>
+      </div>
+
+      <div class="col-md-2 mb-4 mb-md-0">
+        <h5>Explore</h5>
+        <ul class="footer-links">
+          <li><a href="home.html">Home</a></li>
+          <li><a href="#">About Us</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="#">Blog</a></li>
+        </ul>
+      </div>
+
+      <div class="col-md-2 mb-4 mb-md-0">
+        <h5>Features</h5>
+        <ul class="footer-links">
+          <li><a href="taste-match.html">TasteMatch</a></li>
+          <li><a href="itinerary-planner.html">Itinerary Planner</a></li>
+          <li><a href="events.html">Local Events</a></li>
+          <li><a href="deals.html">Weekend Deals</a></li>
+        </ul>
+      </div>
+
+      <div class="col-md-4">
+        <h5>Contact Us</h5>
+        <address>
+          <p><i class="fas fa-map-marker-alt me-2"></i> 123 Royal Mile, Edinburgh, UK</p>
+          <p><i class="fas fa-phone me-2"></i> +44 (0)131 123 4567</p>
+          <p><i class="fas fa-envelope me-2"></i> hello@edinburghexplorer.com</p>
+        </address>
+      </div>
+    </div>
+
+    <hr class="mt-4">
+
+    <div class="row">
+      <div class="col-md-6 mb-3 mb-md-0">
+        <p class="mb-0">&copy; 2025 Edinburgh Explorer. All rights reserved.</p>
+      </div>
+      <div class="col-md-6 text-md-end">
+        <ul class="footer-legal">
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Service</a></li>
+          <li><a href="#">Cookie Policy</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
